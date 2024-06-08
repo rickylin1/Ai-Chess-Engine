@@ -53,28 +53,30 @@ def display_board():
 def make_move():
     move = request.form['move']
     mode = request.form['mode']
-    # difficulty = request.form['difficulty']
-    print("move is" + move)
-    print("mode is" + mode)
-    if mode == "2_player":
-        if game.make_move(move):
+    if game.make_move(move):
             if game.board.is_game_over():
                 print('game is over')
                 return redirect(url_for('gameOver'))
         
             return "Move successful"
-        else:
+    else:
             return "Invalid move"
 
-    else:
-        if game.make_move_against_ai(move, difficulty):
-            if game.board.is_game_over():
-                print('game is over')
-                return redirect(url_for('gameOver'))
+@app.route('/ai_move', methods=['POST'])
+def ai_move():
+    move = request.form['move']
+    mode = request.form['mode']
+    difficulty = request.form['difficulty']
+
+    if game.make_move_against_ai(move, difficulty):
+        if game.board.is_game_over():
+            print('game is over')
+            return redirect(url_for('gameOver'))
         
-            return "Move successful"
-        else:
-            return "Invalid move"
+        return "Move successful"
+
+    else:
+        return "Invalid move"
 
 
 

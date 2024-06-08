@@ -24,7 +24,13 @@ class ChessGame:
     def make_move_against_ai(self, move, difficulty):
         try:
             self.board.push_san(move)
-            eval, bestMove = self.minimax(self.board, difficulty, float('-inf'), float('inf'), True)
+            if difficulty == '1':
+                depth = 3
+            elif difficulty == '2':
+                depth = 5
+            else:
+                depth = 10
+            eval, bestMove = self.minimax(self.board, depth, float('-inf'), float('inf'), True)
             if bestMove:
                 self.board.push(bestMove)
                 print("AI moves:", bestMove)
