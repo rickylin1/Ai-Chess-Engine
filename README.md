@@ -1,5 +1,5 @@
 <h1> NotSoDeepBlue </h1>
-Unspired by Deep Blue, the IBM supercomputer that revolutionized the chess industry by beating Garry Kasparov
+Inspired by Deep Blue, the IBM supercomputer that revolutionized the chess industry by beating Garry Kasparov
 
 
 Implemented minimax algorithm with the general idea of
