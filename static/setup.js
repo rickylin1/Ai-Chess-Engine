@@ -35,26 +35,24 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => console.error(error));
         }else if (mode === '2') {
-            fetch('/play_ai', {
+            formData.append('difficulty', difficultyDiv);
+            fetch('/play_ai_redirect', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                } else {
+            .then(response =>{
+                if (response.ok){
+                    return response.text()
+                }
+                else {
                     throw new Error('Failed to make a POST request');
                 }
             })
-            //have the fetch request return the url to go to with the difficulty level
-            .then(data => {
-                const mode = data.mode;
-                const difficulty = data.difficulty;
-            
-                // Now you can use these variables as needed
-                console.log("Mode:", mode);
-                console.log("Difficulty:", difficulty);
-                // window.location.href = data.mode; // Redirect to the URL obtained from the response
+            .then(htmlContent => {
+                const newWindow = window.open();
+                newWindow.document.open();
+                newWindow.document.write(htmlContent);
+                newWindow.document.close();
             })
             .catch(error => console.error(error));
         }

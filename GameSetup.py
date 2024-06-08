@@ -20,6 +20,18 @@ class ChessGame:
             return True
         except ValueError:
             return False
+    
+    def make_move_against_ai(self, move, difficulty):
+        try:
+            self.board.push_san(move)
+            eval, bestMove = self.minimax(self.board, difficulty, float('-inf'), float('inf'), True)
+            if bestMove:
+                self.board.push(bestMove)
+                print("AI moves:", bestMove)
+                self.display_board()  
+            return True
+        except ValueError:
+            return False
         
     def select_mode(self):
         while True:
@@ -46,6 +58,7 @@ class ChessGame:
             else:
                 print("Invalid move. Please try again.")
         print("Game over:", self.board.result())
+
 
     def play_ai(self):
         self.display_board()

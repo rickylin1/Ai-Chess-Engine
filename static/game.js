@@ -12,6 +12,10 @@
     // Update the board when the page loads
     updateBoard();
 
+    function resetBoard() {
+        fetch('/reset_game')
+    }
+
     // Handle form submission to make moves
     document.getElementById('move-form').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission behavior
@@ -24,8 +28,16 @@
         .then(response => response.text())
         .then(message => {
             alert(message); // Display a message indicating if the move was successful
+            const pattern = /Game over! The winner is \w+/;
+            if (pattern.test(message)) {
+            // Reset the board here
+                resetBoard();
+            }
+
             updateBoard(); // Update the board after making the move
         });
+
+        document.getElementById('move-form').reset();
 
     
     });
