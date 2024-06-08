@@ -15,7 +15,7 @@ def play_2_player():
     if request.method == 'POST':
         print("Data received in POST request to /play_2_players:")
         print(request.form['difficulty'])
-        return jsonify({'mode': 'play_ai', 'difficulty': difficulty}), 200
+        return 'play_2_players',200
     else:
         print('GET REQUEST')
         difficulty = request.args.get('difficulty')  # Retrieve difficulty for GET request

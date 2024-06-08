@@ -42,15 +42,19 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => {
                 if (response.ok) {
                     return response.json()
-                    console.log(response.json())
                 } else {
                     throw new Error('Failed to make a POST request');
                 }
             })
+            //have the fetch request return the url to go to with the difficulty level
             .then(data => {
-                window.location.href = data.mode; // Redirect to the URL obtained from the response
-                console.log('mode is ' + data.mode)
-                console.log(data.difficulty)
+                const mode = data.mode;
+                const difficulty = data.difficulty;
+            
+                // Now you can use these variables as needed
+                console.log("Mode:", mode);
+                console.log("Difficulty:", difficulty);
+                // window.location.href = data.mode; // Redirect to the URL obtained from the response
             })
             .catch(error => console.error(error));
         }
