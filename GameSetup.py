@@ -12,6 +12,7 @@ class ChessGame:
             f.write(svg_board)
         print("SVG file has been updated: chess_board.svg")
         #manually open this file in VS Code or any other SVG viewer
+        return svg_board
 
     def make_move(self, move):
         try:
