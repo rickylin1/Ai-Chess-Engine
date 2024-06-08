@@ -1,3 +1,7 @@
+<h1> NotSoDeepBlue </h1>
+Unspired by Deep Blue, the IBM supercomputer that revolutionized the chess industry by beating Garry Kasparov
+
+
 Implemented minimax algorithm with the general idea of
 - The bot will create a decision tree of a specified depth and search for the most optimal move
 - Optimal move is found based on a heuristic of current board position and piece values
@@ -10,12 +14,28 @@ Reference video
 
 
 # Features
-- Difficulty Level of 1, 2, or 3 to specify the depth the bot will look forward into
+- Difficulty Level of 1, 2, or 3 to specify the depth of tree to branch into
 - Play against a friend or against a bot
 
 # Instructions
+- Ensure dependencies are downloaded
+```
+pip install chess flask
+```
+- Launch flask server by running app.py
+- Open local host 
+
+# Instructions to enter moves
 - For pawn moves, you only need to specify the destination square (e.g., "e4").
 - For capturing moves, use "x" to denote capture (e.g., "exd5").
 - For castling, use "O-O" for kingside castling and "O-O-O" for queenside castling.
 - For pawn promotion, append the promotion piece at the end of the move (e.g., "e8=Q" for promoting to a queen).
 - If a move is invalid, you'll receive an error message and be prompted to enter a valid move.
+
+# Lessons
+- Flask applications can post, and get, also have render templates and GINGA which can simplify.
+- Had trouble redirecting urls for ai different difficulty and calling the logic from frontend back to the algorithm
+
+# Improvements
+- Can deploy GUI drag and drop instead of manual typing
+- Work on cleaner code w/ url directing with flask routes
