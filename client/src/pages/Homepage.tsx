@@ -8,12 +8,10 @@ const Homepage = () => {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <NavBar />
         <Hero subtitle="Ready for chess??" />
-        <ChessBoard />
-        <div className="flex-grow"></div>{" "}
+        <ChessBoard/>
+        <div className=" bg-blue-600 flex-grow"></div>{" "}
         {/* This div fills up remaining space */}
-        <Footer />
       </div>
     </>
   );

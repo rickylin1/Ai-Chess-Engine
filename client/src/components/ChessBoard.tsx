@@ -12,6 +12,7 @@ const Chessboard = () => {
           throw new Error('Network response was not ok');
         }
         const board = await response.text()
+        const svgcontent = board.replace('<svg', '<svg style="background-color: black;"')
         console.log(board);
         setSvgContent(board);
       } catch (error) {
@@ -23,7 +24,7 @@ const Chessboard = () => {
   }, []);
 
   return (
-    <div className = "mx-auto size-96 " dangerouslySetInnerHTML={{ __html: svgContent }} />
+    <div className = "mx-auto size-5/12 " dangerouslySetInnerHTML={{ __html: svgContent }} />
   );
 };
 
