@@ -1,10 +1,20 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for
+from flask import Flask, jsonify, render_template, request, redirect, url_for, Response
 import chess
 import chess.svg
 from GameSetup import ChessGame  # Import ChessGame directly
 
 app = Flask(__name__)
 game = ChessGame()  # Initialize your ChessGame instance
+
+@app.route('/board')
+def board():
+    board = game.board
+    svg = chess.svg.board(board)
+    return Response(svg, mimetype='image/svg+xml')
+
+@app.route('/deepblue')
+def deepblue():
+    return jsonify({'id': 'deepblue'})
 
 @app.route('/')
 def setup():
@@ -106,5 +116,5 @@ def reset_game():
 
 
 
-# if __name__ == '__main__':
-#     app.run(host = '127.0.0.1', port = 8080, debug=True)
+if __name__ == '__main__':
+    app.run(host = '127.0.0.1', port = 8080, debug=True)
