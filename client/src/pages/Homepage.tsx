@@ -2,15 +2,15 @@ import React from "react";
 import Hero from "../components/Hero.tsx";
 import ChessBoard from "../components/ChessBoard.tsx";
 
+import chessImage from '../assets/Deepblue.jpeg'
+
 const Homepage = () => {
   return (
     <>
-      <div className="flex flex-col min-h-screen">
         <Hero subtitle="Ready for chess??" />
-        <ChessBoard/>
-        {/* <div className=" bg-blue-700 flex-grow"></div>{" "} */}
-        {/* This div fills up remaining space */}
-      </div>
+        <div>
+          <img className = "mx-auto" src={chessImage} alt="Chess" style={{ maxWidth: "100%" }} />
+        </div>
     </>
   );
 };

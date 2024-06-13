@@ -37,6 +37,7 @@ def play_2_player():
 @app.route('/play_ai', methods=['GET', 'POST'])
 def play_ai_redirect():
     if request.method == 'POST':
+        print('post request')
         if request.is_json:
             data = request.get_json()
             print(data['move'])

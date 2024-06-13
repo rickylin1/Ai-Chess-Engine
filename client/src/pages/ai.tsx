@@ -1,12 +1,14 @@
 import React from 'react'
-import Chessboard from '../components/ChessBoard.tsx'
+import AiChessboard from '../components/AiChessboard.tsx'
 
 
 const ai = () => {
   return (
+    <>
     <div>
-      <Chessboard></Chessboard>
+      <AiChessboard></AiChessboard>
     </div>
+    </>
   )
 }
 
