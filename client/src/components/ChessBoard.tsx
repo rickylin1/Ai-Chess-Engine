@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './Winner.css'
 
 const Chessboard = () => {
   const [svgContent, setSvgContent] = useState("");
@@ -75,6 +76,7 @@ const Chessboard = () => {
 
       // Optionally handle response data here if needed
       const responseData = await response.json();
+      const winner = responseData['winner']
       console.log("Response:", responseData);
 
       const boardResponse = await fetch("/board");
@@ -96,6 +98,7 @@ const Chessboard = () => {
       console.error("Error submitting move:", error);
     }
   };
+
 
   return (
     <>

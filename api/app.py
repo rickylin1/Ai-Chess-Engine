@@ -1,3 +1,4 @@
+import chess.engine
 from flask import Flask, jsonify, render_template, request, redirect, url_for, Response
 import chess
 import chess.svg
@@ -18,13 +19,16 @@ def play_2_player():
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
-            print(data['move'])
             if(data['move']):
                 game.make_move(data['move'])
-                if gameBoard.outcome == chess.Outcome:
-                    print('game HAS ENDED')
-                #     return str(gameBoard.outcome)
-                print('move was made')
+                if gameBoard.is_game_over():
+                    #black wins
+                    if gameBoard.turn ==  chess.WHITE:
+                        return jsonify({"winner": "Black"})
+                    #white wins
+                    if gameBoard.turn ==  chess.BLACK:
+                        return jsonify({"winner": "White"})
+
             else:
                 return jsonify('Invalid move')
             
