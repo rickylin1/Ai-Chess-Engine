@@ -1,0 +1,12 @@
+.main-layout {
+    min-height: 100vh; /* Ensure layout covers the entire viewport height */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    flex: 1; /* Allow content area to expand and push footer to the bottom */
+  }
+  
+  /* Add any additional styles for your footer */
+  

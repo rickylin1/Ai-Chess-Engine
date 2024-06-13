@@ -1,8 +1,11 @@
 import React from 'react'
+import Chessboard from '../components/ChessBoard.tsx'
 
 const player = () => {
   return (
-    <div>player</div>
+    <div>
+      <Chessboard></Chessboard>
+    </div>
   )
 }
 
