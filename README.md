@@ -8,7 +8,7 @@ Inspired by Deep Blue, the IBM supercomputer that revolutionized the chess indus
 
 
 <h3> Frontend  </h3>
-- React
+- React, Tailwind CSS
 
 <h3> Backend </h3>
 - Flask RESTFUL API
