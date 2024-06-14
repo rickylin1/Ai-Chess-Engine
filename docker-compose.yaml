@@ -1,0 +1,23 @@
+version: '3.8'  # Use the latest Compose file format version
+
+services:
+  api:
+    build: ./api  # Build context for backend service (Dockerfile location)
+    container_name: api_container
+    ports:
+      - "8080:8080"  # Map port 8080 on host to port 8080 in container
+    volumes:
+      - ./backend:/usr/src/app  # Mount local backend directory to container
+    environment:
+      - FLASK_ENV=development  # Set Flask environment to development
+    stdin_open: true
+    tty: true
+
+  frontend:
+    build: ./client # Build context for frontend service (Dockerfile location)
+    container_name: frontend_container
+    ports:
+      - "3000:3000"  # Map port 3000 on host to port 3000 in container
+    environment:
+      - REACT_APP_API_URL=http://backend:8080  # Set API URL for frontend to backend service
+

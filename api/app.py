@@ -1,4 +1,3 @@
-import chess.engine
 from flask import Flask, jsonify, render_template, request, redirect, url_for, Response
 import chess
 import chess.svg
@@ -37,7 +36,7 @@ def play_2_player():
 @app.route('/play_ai', methods=['GET', 'POST'])
 def play_ai_redirect():
     if request.method == 'POST':
-        print('post request')
+        print('post')
         if request.is_json:
             data = request.get_json()
             print(data['move'])
@@ -73,4 +72,4 @@ def reset_game():
 
 
 if __name__ == '__main__':
-    app.run(host = '127.0.0.1', port = 8080, debug=True)
+    app.run(host = '0.0.0.0', port = 8080, debug=True)
