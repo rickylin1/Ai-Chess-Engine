@@ -13,6 +13,10 @@ Inspired by Deep Blue, the IBM supercomputer that revolutionized the chess indus
 <h3> Backend </h3>
 - Flask RESTFUL API
 
+<h3> Container/Deployment </h3>
+- Docker
+
+
 <h3> Algorithm </h3>
 Implemented minimax algorithm with the general idea of
 - The bot will create a decision tree of a specified depth and search for the most optimal move
@@ -46,3 +50,4 @@ Reference video
 
 # Improvements
 - Can deploy GUI drag and drop instead of manual typing
+- Deploy docker image onto dockerhub so people can download it easier
