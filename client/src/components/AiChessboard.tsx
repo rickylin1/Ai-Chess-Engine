@@ -72,7 +72,7 @@ const AiChessboard = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ move: moveInput, difficulty: 1 }), // Send move input as JSON
+        body: JSON.stringify({ move: moveInput, difficulty: 3 }), // Send move input as JSON
       });
 
       if (!response.ok) {

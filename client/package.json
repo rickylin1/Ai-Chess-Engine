@@ -1,8 +1,13 @@
+
 {
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://api:8080",
+  "proxy": "http://127.0.0.1:8080",
+  "comments": {
+    "NOTE1": "Use http://127.0.0.1:8080 if running locally with flask",
+    "NOTE2": "Use http://api:8080 if running on docker"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

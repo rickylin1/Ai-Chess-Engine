@@ -19,10 +19,11 @@ class ChessGame:
             self.board.push_san(move)
             #by default we will set depth equal to 3 (difficulty 1)
             depth = 3
-            if difficulty == '2':
+            if difficulty == 2:
                 depth = 5
-            elif difficulty == '3':
+            elif difficulty == 3:
                 depth = 10
+                print('difficulty is 3')
             eval, bestMove = self.minimax(self.board, depth, float('-inf'), float('inf'), True)
             if bestMove:
                 self.board.push(bestMove)
@@ -35,6 +36,7 @@ class ChessGame:
     def minimax(self, position, depth, alpha, beta, maximizingPlayer):
         # ChessGame.counter += 1
         # print('enter' + str(ChessGame.counter))
+        # print('depth is' + str(depth))
         # Base case: if the depth is 0 or the game is over
         if depth == 0 or position.is_game_over():
             return self.evaluate_heuristic(position), None
